@@ -1,8 +1,7 @@
-package com.example.plm
+package com.example.playlistmaker2023
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.playlistmaker2023.R
 
 class MediaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,19 +1,20 @@
-package com.example.plm
+package com.example.playlistmaker2023
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
-import com.example.playlistmaker2023.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 
-class SettingsActivity : AppCompatActivity() {
+
+internal class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
         val buttonSettingsBack = findViewById<LinearLayout>(R.id.big_button_settings_back)
 
-        buttonSettingsBack.setOnClickListener{
+        buttonSettingsBack.setOnClickListener {
             val displayIntent = Intent(this, MainActivity::class.java)
             startActivity(displayIntent)
         }

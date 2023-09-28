@@ -1,14 +1,10 @@
-package com.example.plm
+package com.example.playlistmaker2023
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Toast
-import com.example.playlistmaker2023.R
-import com.example.playlistmaker2023.SearchActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +23,8 @@ class MainActivity : AppCompatActivity() {
 
 
                 /* убираем код тоста
-                Toast.makeText(this@MainActivity, "Вы кликнули на Поиск", Toast.LENGTH_SHORT).show()
-                 */
+                                Toast.makeText(this@MainActivity, "Вы кликнули на Поиск", Toast.LENGTH_SHORT).show()
+                                 */
             }
         })
 
@@ -38,8 +34,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(displayIntent)
 
             /* убираем код тоста
-            Toast.makeText(this@MainActivity, "Вы кликнули на Медиатека", Toast.LENGTH_SHORT).show()
-             */
+                        Toast.makeText(this@MainActivity, "Вы кликнули на Медиатека", Toast.LENGTH_SHORT).show()
+                         */
         }
 
         buttonSettings.setOnClickListener{
@@ -47,8 +43,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(displayIntent)
 
             /* предыдущий код
-            Toast.makeText(this@MainActivity, "Вы кликнули на Настройки", Toast.LENGTH_SHORT).show()
-             */
+                        Toast.makeText(this@MainActivity, "Вы кликнули на Настройки", Toast.LENGTH_SHORT).show()
+                         */
         }
     }
 }
