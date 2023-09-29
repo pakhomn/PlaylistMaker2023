@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="menu_height">61dp</dimen>
+    <dimen name="space">8dp</dimen>
+    <dimen name="medium_space">12dp</dimen>
+    <dimen name="super_space">16dp</dimen>
 </resources>
