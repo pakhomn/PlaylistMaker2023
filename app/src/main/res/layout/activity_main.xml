@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_margin="4dp">
+        android:layout_margin="@dimen/half_space">
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,9 +28,9 @@
     <LinearLayout
         android:id="@+id/big_button_search"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/nothing"
         android:layout_marginStart="@dimen/super_space"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/space_x3"
         android:layout_marginEnd="@dimen/super_space"
         android:layout_weight="1"
         android:background="@drawable/rounded_corner"
@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/space"
                 android:fontFamily="@font/font_family"
                 android:text="@string/search"
                 android:textColor="@color/text_color_black"
@@ -64,7 +64,7 @@
     <LinearLayout
         android:id="@+id/big_button_media"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/nothing"
         android:layout_marginStart="@dimen/super_space"
         android:layout_marginTop="@dimen/super_space"
         android:layout_marginEnd="@dimen/super_space"
@@ -89,7 +89,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="@dimen/space"
                 android:fontFamily="@font/font_family"
                 android:gravity="center"
                 android:text="@string/media"
@@ -103,7 +103,7 @@
     <LinearLayout
         android:id="@+id/big_button_settings"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/nothing"
         android:layout_marginStart="@dimen/super_space"
         android:layout_marginTop="@dimen/super_space"
         android:layout_marginEnd="@dimen/super_space"
