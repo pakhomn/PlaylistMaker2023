@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/block_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/big_button_settings_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="@dimen/half_space"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:onClick="onLinearLayoutClick"
+        android:foreground="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/medium_space"
+            android:src="@drawable/icon_arrow_bac_light_mode"
+            app:iconTint="@color/block_color"
+            android:gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/settings"
+            android:fontFamily="@font/font_family"
+            android:textColor="@color/text_color_black"
+            android:textSize="26sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/space_x3"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_height"
+            android:layout_marginStart="@dimen/super_space"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/nothing"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/theme_is_black"
+                android:fontFamily="@font/else_font_family"
+                android:textColor="@color/text_color_black"
+                android:textSize="19sp"
+                android:gravity="center_vertical" />
+
+            <Switch
+                android:layout_width="56dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/medium_space"
+                android:checked="false"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_height"
+            android:layout_marginStart="@dimen/super_space"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/nothing"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/share"
+                android:textColor="@color/text_color_black"
+                android:fontFamily="@font/else_font_family"
+                android:textSize="19sp"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/medium_space"
+                android:src="@drawable/icon_share_light_mode"
+                app:iconTint="@color/block_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_height"
+            android:layout_marginStart="@dimen/super_space"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/nothing"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/write_to_support"
+                android:textColor="@color/text_color_black"
+                android:fontFamily="@font/else_font_family"
+                android:textSize="19sp"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/medium_space"
+                android:src="@drawable/icon_write_to_support_light_mode"
+                app:iconTint="@color/block_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/menu_height"
+            android:layout_marginStart="@dimen/super_space"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="@dimen/nothing"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/user_agreement"
+                android:textColor="@color/text_color_black"
+                android:fontFamily="@font/else_font_family"
+                android:textSize="19sp"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/medium_space"
+                android:src="@drawable/icon_arrow_forward_light_mode"
+                app:iconTint="@color/block_color" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
