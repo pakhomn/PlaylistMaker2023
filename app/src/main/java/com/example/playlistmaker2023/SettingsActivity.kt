@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat.startActivity
 
 
@@ -12,9 +13,19 @@ internal class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        /*
         val buttonSettingsBack = findViewById<LinearLayout>(R.id.big_button_settings_back)
 
         buttonSettingsBack.setOnClickListener {
+            val displayIntent = Intent(this, MainActivity::class.java)
+            startActivity(displayIntent)
+        }
+
+         */
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        toolbar.setNavigationOnClickListener  {
             val displayIntent = Intent(this, MainActivity::class.java)
             startActivity(displayIntent)
         }

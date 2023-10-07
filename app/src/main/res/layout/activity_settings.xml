@@ -7,37 +7,16 @@
     android:background="@color/block_color"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/big_button_settings_back"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
         android:layout_margin="@dimen/half_space"
-        android:gravity="center_vertical"
-        android:clickable="true"
-        android:onClick="onLinearLayoutClick"
-        android:foreground="?attr/selectableItemBackground">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_space"
-            android:src="@drawable/icon_arrow_bac_light_mode"
-            app:iconTint="@color/block_color"
-            android:gravity="center_vertical"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="@string/settings"
-            android:fontFamily="@font/font_family"
-            android:textColor="@color/text_color_black"
-            android:textSize="26sp"
-            />
-
-    </LinearLayout>
+        app:navigationIcon="@drawable/icon_arrow_back_light_mode"
+        app:title="@string/settings"
+        android:fontFamily="@font/font_family"
+        android:textColor="@color/text_color_black"
+        android:textSize="26sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

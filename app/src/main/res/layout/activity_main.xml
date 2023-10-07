@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -6,29 +7,21 @@
     android:background="@color/background_color"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_margin="@dimen/half_space">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/medium_space"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="@dimen/medium_space"
-            android:fontFamily="@font/font_family"
-            android:text="@string/app_name"
-            android:textColor="@color/text_color_white"
-            android:textSize="26sp" />
-
-    </LinearLayout>
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/medium_space"
+        android:fontFamily="@font/font_family"
+        android:text="@string/app_name"
+        android:textColor="@color/text_color_white"
+        android:textSize="26sp" />
 
     <LinearLayout
         android:id="@+id/big_button_search"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nothing"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/super_space"
         android:layout_marginTop="@dimen/space_x3"
         android:layout_marginEnd="@dimen/super_space"
@@ -36,35 +29,29 @@
         android:background="@drawable/rounded_corner"
         android:clickable="true"
         android:onClick="onLinearLayoutClick"
-        android:foreground="?attr/selectableItemBackground">
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_search_light_mode"
+            app:iconTint="@color/block_color" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_search_light_mode"
-                app:iconTint="@color/block_color" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space"
-                android:fontFamily="@font/font_family"
-                android:text="@string/search"
-                android:textColor="@color/text_color_black"
-                android:textSize="26sp" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space"
+            android:fontFamily="@font/font_family"
+            android:text="@string/search"
+            android:textColor="@color/text_color_black"
+            android:textSize="26sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/big_button_media"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nothing"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/super_space"
         android:layout_marginTop="@dimen/super_space"
         android:layout_marginEnd="@dimen/super_space"
@@ -72,38 +59,29 @@
         android:background="@drawable/rounded_corner"
         android:clickable="true"
         android:onClick="onLinearLayoutClick"
-        android:foreground="?attr/selectableItemBackground">
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_media_light_mode"
+            app:iconTint="@color/block_color" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_media_light_mode"
-                app:iconTint="@color/block_color"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/space"
-                android:fontFamily="@font/font_family"
-                android:gravity="center"
-                android:text="@string/media"
-                android:textColor="@color/text_color_black"
-                android:textSize="26sp" />
-        </LinearLayout>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space"
+            android:fontFamily="@font/font_family"
+            android:text="@string/media"
+            android:textColor="@color/text_color_black"
+            android:textSize="26sp" />
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/big_button_settings"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/nothing"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/super_space"
         android:layout_marginTop="@dimen/super_space"
         android:layout_marginEnd="@dimen/super_space"
@@ -112,34 +90,23 @@
         android:background="@drawable/rounded_corner"
         android:clickable="true"
         android:onClick="onLinearLayoutClick"
-        android:foreground="?attr/selectableItemBackground">
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_settings_light_mode"
+            app:iconTint="@color/block_color" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_settings_light_mode"
-                app:iconTint="@color/block_color"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/space"
-                android:fontFamily="@font/font_family"
-                android:gravity="center"
-                android:text="@string/settings"
-                android:textColor="@color/text_color_black"
-                android:textSize="26sp" />
-
-        </LinearLayout>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space"
+            android:fontFamily="@font/font_family"
+            android:text="@string/settings"
+            android:textColor="@color/text_color_black"
+            android:textSize="26sp" />
     </LinearLayout>
-
 
 </LinearLayout>
