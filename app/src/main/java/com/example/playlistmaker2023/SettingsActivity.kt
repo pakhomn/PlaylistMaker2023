@@ -1,11 +1,18 @@
 package com.example.playlistmaker2023
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Switch
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat.startActivity
 
@@ -14,16 +21,6 @@ internal class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-
-        /*
-        val buttonSettingsBack = findViewById<LinearLayout>(R.id.big_button_settings_back)
-
-        buttonSettingsBack.setOnClickListener {
-            val displayIntent = Intent(this, MainActivity::class.java)
-            startActivity(displayIntent)
-        }
-
-         */
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setNavigationOnClickListener  {
@@ -45,7 +42,6 @@ internal class SettingsActivity : AppCompatActivity() {
         buttonUserAgreement.setOnClickListener {
             moveToOffertInBrowser()
         }
-
     }
 
     private fun shareApp() {
@@ -82,4 +78,15 @@ internal class SettingsActivity : AppCompatActivity() {
 
         startActivity(browserIntent)
     }
+
+    private fun syncNightModeWithSystem() {
+        val nightModeSwitch = findViewById<Switch>(R.id.night_mode_switch)
+        val currentNightMode = AppCompatDelegate.getDefaultNightMode()
+
+        when (currentNightMode) {
+            AppCompatDelegate.MODE_NIGHT_YES -> nightModeSwitch.isChecked = true
+            AppCompatDelegate.MODE_NIGHT_NO -> nightModeSwitch.isChecked = false
+        }
+    }
+
 }

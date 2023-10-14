@@ -25,19 +25,33 @@
             android:layout_height="52sp"
             style="@style/SearchScreen">
 
-            <TextView
-                android:layout_width="@dimen/nothing"
-                android:layout_height="wrap_content"
-                android:text="@string/user_agreement"
-                style="@style/MenuBarText"/>
-
             <ImageView
                 android:id="@+id/button_user_agreement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_arrow_forward"
+                android:src="@drawable/icon_search_grey"
                 app:iconTint="@color/block_color"
-                style="@style/MenuBarIcon"/>
+                style="@style/SearchBarIcon"/>
+
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="@dimen/nothing"
+                android:layout_height="wrap_content"
+                android:hint="@string/search"
+                android:maxLines="1"
+                style="@style/SearchBarText"
+                android:drawablePadding="8sp"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:background="@null"/>
+
+            <ImageView
+                android:id="@+id/button_clear"
+                android:layout_width="@dimen/space_x3"
+                android:layout_height="@dimen/space_x3"
+                android:src="@drawable/icon_clear"
+                android:text="@string/search"
+                style="@style/ClearIcon" />
         </LinearLayout>
 
 

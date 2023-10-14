@@ -18,10 +18,12 @@
             android:theme="@style/Base.Theme.PLM"/>
         <activity
             android:name=".MediaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.PLM"/>
         <activity
             android:name=".SearchActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.PLM"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -19,7 +19,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/rounded_corner</item>
         <item name="android:clickable">true</item>
-        <item name="android:onClick">onLinearLayoutClick</item>
+        <!--<item name="android:onClick">onLinearLayoutClick</item>-->
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:gravity">center</item>
     </style>

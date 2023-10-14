@@ -4,4 +4,5 @@
     <color name="night_secondary_background_color">#FFFFFFFF</color>
     <color name="night_text_color_white">#FFFFFFFF</color>
     <color name="mini_rounder_corner">#FFFFFF</color>
+    <color name="bar_text">#1A1B22</color>
 </resources>
