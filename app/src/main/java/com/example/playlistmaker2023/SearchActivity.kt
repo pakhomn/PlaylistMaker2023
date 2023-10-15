@@ -16,6 +16,8 @@ import android.view.inputmethod.InputMethodManager
 class SearchActivity : AppCompatActivity() {
     private lateinit var searchEditText: EditText
     private lateinit var clearButton: ImageView
+    private lateinit var cursor: ImageView
+    var searchText: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -26,40 +28,17 @@ class SearchActivity : AppCompatActivity() {
             startActivity(displayIntent)
         }
 
-
-        /*
-        searchEditText = findViewById(R.id.searchEditText)
-        searchEditText.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                showKeyboard()
-            } else {
-                hideKeyboard()
-            }
-        }
-
-
-        searchEditText.setOnTouchListener { _, event ->
-            if (event.action == android.view.MotionEvent.ACTION_UP) {
-                if (isClearButtonClicked(event)) {
-                    searchEditText.text.clear()
-                }
-            }
-            false
-        }
-
-
-
-         */
-
-
         searchEditText = findViewById(R.id.searchEditText)
         clearButton = findViewById(R.id.button_clear)
+        //cursor = findViewById(R.id.cursor)
 
         clearButton.visibility = View.GONE
+        //cursor.visibility = View.VISIBLE
 
         searchEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 showKeyboard()
+                //cursor.visibility = View.GONE
             } else {
                 hideKeyboard()
             }
@@ -67,22 +46,26 @@ class SearchActivity : AppCompatActivity() {
 
         searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Не используется
+                // Не реализуем, оставляем как есть
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // Не используется
+                // Не реализуем, оставляем как есть
             }
 
             override fun afterTextChanged(s: Editable?) {
-                // Если ничего не написали, скрываем кнопку, иначе - показываем
+                // Если ничего не написали, скрываем кнопку х, иначе - показываем
                 if (s.toString().isNotEmpty()) {
                     clearButton.visibility = View.VISIBLE
+                    //cursor.visibility = View.GONE
                 } else {
                     clearButton.visibility = View.GONE
+                    //cursor.visibility = View.VISIBLE
                 }
+                searchText = s.toString()
             }
         })
+
+        searchEditText.setText(searchText)
 
         clearButton.setOnClickListener {
             searchEditText.text.clear()
@@ -90,6 +73,17 @@ class SearchActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("searchText", searchText)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        searchText = savedInstanceState.getString("searchText", "")
+    }
+
 
     private fun showKeyboard() {
         searchEditText.requestFocus()
@@ -101,11 +95,12 @@ class SearchActivity : AppCompatActivity() {
         imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
     }
 
+    /* первое плохое решение, с фиксом
     private fun isClearButtonClicked(event: android.view.MotionEvent): Boolean {
         val drawableRight = 2
         val x = event.x.toInt()
         val width = searchEditText.width
         return x >= width - searchEditText.compoundDrawables[drawableRight].bounds.width()
     }
-
+     */
 }

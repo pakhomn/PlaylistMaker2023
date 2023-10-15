@@ -28,22 +28,17 @@
             <ImageView
                 android:id="@+id/button_user_agreement"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/super_space"
                 android:src="@drawable/icon_search_grey"
                 app:iconTint="@color/block_color"
                 style="@style/SearchBarIcon"/>
 
             <EditText
                 android:id="@+id/searchEditText"
-                android:layout_width="@dimen/nothing"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/search"
-                android:maxLines="1"
-                style="@style/SearchBarText"
-                android:drawablePadding="8sp"
-                android:inputType="text"
-                android:imeOptions="actionSearch"
-                android:background="@null"/>
+                style="@style/SearchBarText" />
 
             <ImageView
                 android:id="@+id/button_clear"
@@ -53,7 +48,5 @@
                 android:text="@string/search"
                 style="@style/ClearIcon" />
         </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>

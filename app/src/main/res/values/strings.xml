@@ -12,7 +12,6 @@
     <string name="support_email_subject" translatable="false">Сообщение разработчикам и разработчицам приложения Playlist Maker</string>
     <string name="support_email_text" translatable="false">Спасибо разработчикам и разработчицам за крутое приложение!</string>
     <string name="user_agreement_link" translatable="false">https://yandex.ru/legal/practicum_offer/</string>
-
     <string name="night_theme_is_on" translatable="false">Включение ночной темы</string>
     <string name="night_theme_warning" translatable="false">Для включения ночной темы в приложении, включите ночной режим на устройстве</string>
     <string name="back" translatable="false">Назад</string>
