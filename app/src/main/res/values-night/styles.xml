@@ -67,7 +67,7 @@
         <item name="android:layout_marginEnd">@dimen/nothing</item>
         <item name="android:layout_weight">1</item>
         <item name="android:fontFamily">@font/else_font_family</item>
-        <item name="android:textColor">@color/bar_text</item>
+        <item name="android:textColor">@color/text_color_black</item>
         <item name="android:textColorHint">@color/bar_text</item>
         <item name="android:textSize">19sp</item>
         <item name="android:gravity">center_vertical</item>

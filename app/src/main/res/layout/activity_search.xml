@@ -22,7 +22,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52sp"
+            android:layout_height="36sp"
             style="@style/SearchScreen">
 
             <ImageView
@@ -42,8 +42,8 @@
 
             <ImageView
                 android:id="@+id/button_clear"
-                android:layout_width="@dimen/space_x3"
-                android:layout_height="@dimen/space_x3"
+                android:layout_width="@dimen/super_space"
+                android:layout_height="@dimen/super_space"
                 android:src="@drawable/icon_clear"
                 android:text="@string/search"
                 style="@style/ClearIcon" />

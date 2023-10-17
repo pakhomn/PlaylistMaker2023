@@ -13,65 +13,56 @@
         style="@style/LogoTextStyle"/>
 
     <LinearLayout
-        android:id="@+id/big_button_search"
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_x3"
+        android:layout_marginTop="@dimen/super_space"
         style="@style/MainScreenButtonLayer">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_search_light_mode"
-            app:iconTint="@color/block_color" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/big_button_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:icon="@drawable/icon_search_light_mode"
             android:text="@string/search"
-            style="@style/TextViewButton"
-            />
+            style="@style/ButtonUnelevatedStyle">
+        </Button>
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/big_button_media"
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/super_space"
         style="@style/MainScreenButtonLayer">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_media_light_mode"
-            app:iconTint="@color/block_color" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/big_button_media"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:icon="@drawable/icon_media_light_mode"
             android:text="@string/media"
-            style="@style/TextViewButton" />
+            style="@style/ButtonUnelevatedStyle">
+        </Button>
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/big_button_settings"
+
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/super_space"
-        android:layout_marginBottom="28dp"
+        android:layout_marginVertical="@dimen/super_space"
         style="@style/MainScreenButtonLayer">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_settings_light_mode"
-            app:iconTint="@color/block_color" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Button
+            android:id="@+id/big_button_settings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:icon="@drawable/icon_settings_light_mode"
             android:text="@string/settings"
-            style="@style/TextViewButton" />
+            style="@style/ButtonUnelevatedStyle">
+        </Button>
     </LinearLayout>
 
 </LinearLayout>

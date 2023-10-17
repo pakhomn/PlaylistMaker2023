@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
@@ -14,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val buttonSearch = findViewById<LinearLayout>(R.id.big_button_search)
-        val buttonMedia = findViewById<LinearLayout>(R.id.big_button_media)
-        val buttonSettings = findViewById<LinearLayout>(R.id.big_button_settings)
+        val buttonSearch = findViewById<Button>(R.id.big_button_search)
+        val buttonMedia = findViewById<Button>(R.id.big_button_media)
+        val buttonSettings = findViewById<Button>(R.id.big_button_settings)
 
         buttonSearch.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
