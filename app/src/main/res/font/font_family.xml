@@ -4,5 +4,5 @@
 <font
     app:fontStyle="normal"
     app:fontWeight="400"
-    app:font="@font/ys_display_m" />
+    app:font="@font/ys_display_medium" />
 </font-family>

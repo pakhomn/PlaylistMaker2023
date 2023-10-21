@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    style="@style/SecondaryScreenStyle">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/icon_arrow_back"
+        app:title="@string/search"
+        style="@style/Toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36sp"
+            style="@style/SearchScreen">
+
+            <ImageView
+                android:id="@+id/button_user_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/super_space"
+                android:src="@drawable/icon_search_grey"
+                app:iconTint="@color/block_color"
+                style="@style/SearchBarIcon"/>
+
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/search"
+                style="@style/SearchBarText" />
+
+            <ImageView
+                android:id="@+id/button_clear"
+                android:layout_width="@dimen/super_space"
+                android:layout_height="@dimen/super_space"
+                android:src="@drawable/icon_clear"
+                android:text="@string/search"
+                style="@style/ClearIcon" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

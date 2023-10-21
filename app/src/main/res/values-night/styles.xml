@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MainScreenStyle">
+        <item name="android:background">@color/night_background_color</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LogoTextStyle">
+        <item name="android:layout_marginStart">@dimen/medium_space</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">@dimen/medium_space</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="MainScreenButtonLayer">
+        <item name="android:layout_marginHorizontal">@dimen/super_space</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:clickable">true</item>
+        <!--<item name="android:onClick">onLinearLayoutClick</item>-->
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextViewButton">
+        <item name="android:layout_marginStart">@dimen/space</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="SecondaryScreenStyle">
+        <item name="android:background">@color/night_background_color</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Toolbar">
+        <item name="android:layout_margin">@dimen/half_space</item>
+        <item name="android:fontFamily">@font/font_family</item>
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="MenuBarLayout">
+        <item name="android:layout_marginStart">@dimen/super_space</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MenuBarText">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/else_font_family</item>
+        <item name="android:textColor">@color/night_text_color_white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MenuBarIcon">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginEnd">@dimen/medium_space</item>
+    </style>
+
+    <style name="SearchBarText">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginEnd">@dimen/nothing</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/else_font_family</item>
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textColorHint">@color/bar_text</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@null</item>
+    </style>
+</resources>
