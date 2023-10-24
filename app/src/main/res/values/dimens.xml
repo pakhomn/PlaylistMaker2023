@@ -4,9 +4,13 @@
     <dimen name="space">8sp</dimen>
     <dimen name="other_space">10sp</dimen>
     <dimen name="other_space_x4">40sp</dimen>
+    <dimen name="track_picture">45sp</dimen>
     <dimen name="medium_space">12sp</dimen>
+    <dimen name="medium_space_plus_1">13sp</dimen>
+    <dimen name="medium_space_plus_2">14sp</dimen>
     <dimen name="super_space">16sp</dimen>
     <dimen name="nothing">0sp</dimen>
     <dimen name="half_space">4sp</dimen>
+    <dimen name="half_half_space">2sp</dimen>
     <dimen name="space_x3">24sp</dimen>
 </resources>
