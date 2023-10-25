@@ -16,7 +16,7 @@
             android:id="@+id/trackPicture"
             android:layout_width="@dimen/track_picture"
             android:layout_height="@dimen/track_picture"
-            android:src="@drawable/image1"
+            android:src="@drawable/placeholder"
             android:background="?attr/selectableItemBackgroundBorderless"
             style="@style/ImagePic"/>
 

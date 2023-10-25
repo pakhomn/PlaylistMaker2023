@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -14,8 +13,6 @@ import androidx.appcompat.widget.Toolbar
 import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import trackstream.Track
-import trackstream.TrackAdapter
 
 class SearchActivity : AppCompatActivity() {
     private lateinit var searchEditText: EditText
