@@ -73,4 +73,52 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@null</item>
     </style>
+
+    <style name="TrackNameText">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/else_font_family</item>
+        <item name="android:textColor">@color/night_text_color_white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="TrackMenu">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/night_background_color</item>
+    </style>
+
+    <style name="TrackMenuList">
+        <item name="android:background">@color/night_background_color</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingStart">@dimen/medium_space_plus_1</item>
+        <item name="android:paddingEnd">@dimen/medium_space</item>
+    </style>
+
+    <style name="ImagePic">
+        <item name="android:background">@color/night_background_color</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="AboutTrack">
+        <item name="android:background">@color/night_background_color</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginStart">@dimen/space</item>
+        <item name="android:paddingVertical">@dimen/medium_space_plus_2</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="BandNameText">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/else_font_family</item>
+        <item name="android:textColor">@color/night_text_color_white</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+
+
+
 </resources>

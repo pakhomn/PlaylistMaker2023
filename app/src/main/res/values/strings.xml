@@ -15,4 +15,7 @@
     <string name="night_theme_is_on" translatable="false">Включение ночной темы</string>
     <string name="night_theme_warning" translatable="false">Для включения ночной темы в приложении, включите ночной режим на устройстве</string>
     <string name="back" translatable="false">Назад</string>
+    <string name="track_name" translatable="false">Название трека</string>
+    <string name="group" translatable="false">группа</string>
+    <string name="time" translatable="false">время</string>
 </resources>

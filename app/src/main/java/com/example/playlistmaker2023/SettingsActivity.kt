@@ -28,18 +28,18 @@ internal class SettingsActivity : AppCompatActivity() {
             startActivity(displayIntent)
         }
 
-        val buttonShare = findViewById<ImageView>(R.id.button_share)
-        buttonShare.setOnClickListener {
+        val shareButton = findViewById<ImageView>(R.id.button_share)
+        shareButton.setOnClickListener {
             shareApp()
         }
 
-        val buttonSupport = findViewById<ImageView>(R.id.button_support)
-        buttonSupport.setOnClickListener {
+        val supportButton = findViewById<ImageView>(R.id.button_support)
+        supportButton.setOnClickListener {
             writeToSupport()
         }
 
-        val buttonUserAgreement = findViewById<ImageView>(R.id.button_user_agreement)
-        buttonUserAgreement.setOnClickListener {
+        val userAgreementButton = findViewById<ImageView>(R.id.button_user_agreement)
+        userAgreementButton.setOnClickListener {
             moveToOffertInBrowser()
         }
     }
@@ -61,14 +61,13 @@ internal class SettingsActivity : AppCompatActivity() {
         val subject = getString(R.string.support_email_subject)
         val message = getString(R.string.support_email_text)
 
-        val emailIntent = Intent(Intent.ACTION_SENDTO)
-
-        emailIntent.data = Uri.parse("mailto:")
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, emailAddress)
-        emailIntent.putExtra(Intent.EXTRA_TEXT, message)
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
-
-        startActivity(emailIntent)
+        with(Intent(Intent.ACTION_SENDTO)) {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, emailAddress)
+            putExtra(Intent.EXTRA_TEXT, message)
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+            startActivity(this)
+        }
     }
 
     private fun moveToOffertInBrowser() {
