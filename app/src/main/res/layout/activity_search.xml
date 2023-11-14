@@ -38,6 +38,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="@string/search"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
                 style="@style/SearchBarText" />
 
             <ImageView
@@ -50,11 +52,40 @@
         </LinearLayout>
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/not_found"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="@style/BlankLayout"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/image_not_found"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/not_found"
+            style="@style/BlankLayoutText"
+            />
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/super_space"
-        tools:context=".SearchActivity">
+        tools:context=".SearchActivity"
+        android:visibility="visible"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/track"
@@ -64,6 +95,41 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="10"
             tools:listitem="@layout/track" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/smth_wrong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="@style/BlankLayout"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/image_smth_wrong"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/something_went_wrong"
+            style="@style/BlankLayoutText"
+            />
+
+        <Button
+        android:id="@+id/new_connection_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/new_connect"
+            style="@style/BlankLayoutButton"
+            />
+
     </LinearLayout>
 
 </LinearLayout>
