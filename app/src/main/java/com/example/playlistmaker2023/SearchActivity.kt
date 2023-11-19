@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
@@ -39,7 +38,7 @@ class SearchActivity : AppCompatActivity() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    private val iTunesAPIService = retrofit.create(iTunesAPI::class.java)
+    private val iTunesAPIService = retrofit.create(ITunesAPI::class.java)
 
     companion object {
         private const val SEARCH_TEXT_KEY = "searchText"
@@ -173,9 +172,7 @@ class SearchActivity : AppCompatActivity() {
                         val trackResponse = response.body()
                         if (trackResponse != null) {
                             if (trackResponse.results.isNotEmpty()) {
-                                adapterList.clear()
-                                adapterList.addAll(trackResponse.results)
-                                adapter.notifyDataSetChanged()
+                                adapter.updateList(trackResponse.results)
                                 errorNothingWasFound.visibility = View.GONE
                                 errorAnother.visibility = View.GONE
                                 recyclerViewTrack.visibility = View.VISIBLE
