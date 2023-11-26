@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageView
@@ -23,13 +24,15 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class SearchActivity : AppCompatActivity() {
+const val HISTORY_TRACK = "history_track"
+const val HISTORY_TRACK_KEY = "history_track_key"
+class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
     private lateinit var searchEditText: EditText
     private lateinit var clearButton: ImageView
     private var searchText: String = ""
 
     private val adapterList = ArrayList<Track>()
-    private val adapter = TrackAdapter(adapterList)
+    private lateinit var adapter: TrackAdapter
 
     private val iTunesBaseURL = "https://itunes.apple.com"
 
@@ -40,14 +43,23 @@ class SearchActivity : AppCompatActivity() {
 
     private val iTunesAPIService = retrofit.create(ITunesAPI::class.java)
 
-    companion object {
-        private const val SEARCH_TEXT_KEY = "searchText"
-    }
-
     private lateinit var errorNothingWasFound: LinearLayout
     private lateinit var recyclerViewTrack: RecyclerView
     private lateinit var errorAnother: LinearLayout
     private lateinit var newConnectionButton: Button
+
+    private lateinit var historyLayout: LinearLayout
+    private lateinit var recyclerViewTrackHistory: RecyclerView
+    private lateinit var cleanHistory: Button
+    private val adapterListHistory = ArrayList<Track>()
+    private lateinit var adapterHistory: TrackAdapter
+
+    private lateinit var searchHistory: SearchHistory
+
+
+    companion object {
+        private const val SEARCH_TEXT_KEY = "searchText"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,9 +68,20 @@ class SearchActivity : AppCompatActivity() {
         setupListeners()
         restoreSavedState(savedInstanceState)
 
+        searchHistory = SearchHistory(getSharedPreferences("SearchHistory", Context.MODE_PRIVATE))
+        adapter = TrackAdapter(adapterList, searchHistory)
+        adapter.setOnTrackClickListener(this)
+        adapterHistory = TrackAdapter(adapterListHistory, searchHistory)
+
+        recyclerViewTrackHistory = findViewById(R.id.track_history)
+        recyclerViewTrackHistory.layoutManager = LinearLayoutManager(this)
+        recyclerViewTrackHistory.adapter = adapterHistory
+
         errorNothingWasFound = findViewById(R.id.not_found)
         recyclerViewTrack = findViewById(R.id.track)
         errorAnother = findViewById(R.id.smth_wrong)
+        historyLayout = findViewById(R.id.history)
+        cleanHistory = findViewById(R.id.clean_history)
 
         showTrackList()
 
@@ -76,6 +99,20 @@ class SearchActivity : AppCompatActivity() {
                 refreshLastFailedSearch()
             }
         }
+
+        cleanHistory.setOnClickListener {
+            searchHistory.clearSearchHistory()
+            adapterListHistory.clear()
+            adapterHistory.notifyDataSetChanged()
+
+            hideSearchHistory()
+        }
+        loadAndDisplaySearchHistory()
+    }
+
+    override fun onTrackClick(track: Track) {
+        searchHistory.saveSearch(track)
+        loadAndDisplaySearchHistory()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -107,6 +144,10 @@ class SearchActivity : AppCompatActivity() {
             } else {
                 hideKeyboard()
             }
+
+            if (hasFocus && searchEditText.text.isEmpty() && searchHistory.hasTracksInHistory()) {
+                showSearchHistory()
+            }
         }
 
         searchEditText.addTextChangedListener(object : TextWatcher {
@@ -125,6 +166,8 @@ class SearchActivity : AppCompatActivity() {
                     clearButton.visibility = View.GONE
                 }
                 searchText = s.toString()
+
+
             }
         })
 
@@ -139,6 +182,9 @@ class SearchActivity : AppCompatActivity() {
             errorNothingWasFound.visibility = View.GONE
             errorAnother.visibility = View.GONE
             recyclerViewTrack.visibility = View.VISIBLE
+            if (searchHistory.hasTracksInHistory()) {
+                showSearchHistory()
+            }
         }
     }
 
@@ -176,6 +222,8 @@ class SearchActivity : AppCompatActivity() {
                                 errorNothingWasFound.visibility = View.GONE
                                 errorAnother.visibility = View.GONE
                                 recyclerViewTrack.visibility = View.VISIBLE
+                                hideSearchHistory()
+
                             } else {
                                 showNotFoundText(getString(R.string.not_found), "")
                             }
@@ -199,6 +247,8 @@ class SearchActivity : AppCompatActivity() {
         if (text.isNotEmpty()) {
             recyclerViewTrack.visibility= View.GONE
             errorNothingWasFound.visibility= View.VISIBLE
+            historyLayout.visibility = View.GONE
+            cleanHistory.visibility = View.GONE
             adapterList.clear()
             adapter.notifyDataSetChanged()
             if (additionalMessage.isNotEmpty()) {
@@ -214,6 +264,8 @@ class SearchActivity : AppCompatActivity() {
         if (text.isNotEmpty()) {
             recyclerViewTrack.visibility= View.GONE
             errorAnother.visibility= View.VISIBLE
+            historyLayout.visibility = View.GONE
+            cleanHistory.visibility = View.GONE
             adapterList.clear()
             adapter.notifyDataSetChanged()
             if (additionalMessage.isNotEmpty()) {
@@ -230,5 +282,26 @@ class SearchActivity : AppCompatActivity() {
             val lastQuery = searchEditText.text.toString()
             searchFromAPI(lastQuery)
         }
+    }
+
+    private fun loadAndDisplaySearchHistory() {
+        val historyList = searchHistory.getSearchHistory()
+        adapterListHistory.clear()
+        adapterListHistory.addAll(historyList)
+        adapterHistory.notifyDataSetChanged()
+    }
+
+    private fun showSearchHistory() {
+        historyLayout.visibility = View.VISIBLE
+        cleanHistory.visibility = View.VISIBLE
+    }
+
+    private fun hideSearchHistory() {
+        val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        historyLayout.startAnimation(fadeOut)
+        cleanHistory.startAnimation(fadeOut)
+
+        historyLayout.visibility = View.GONE
+        cleanHistory.visibility = View.GONE
     }
 }

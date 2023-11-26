@@ -80,6 +80,48 @@
 
 
     <LinearLayout
+        android:id="@+id/history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/super_space"
+        android:orientation="vertical"
+        tools:context=".SearchActivity"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:textAlignment="center"
+            android:text="@string/you_was_searching"
+            style="@style/WasSearching"
+            >
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/track_history"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="10"
+            tools:listitem="@layout/track" />
+
+        <Button
+            android:id="@+id/clean_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="@string/clean_history"
+            style="@style/WasSearchingButton"
+            >
+        </Button>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/super_space"
@@ -95,7 +137,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="10"
             tools:listitem="@layout/track" />
-
     </LinearLayout>
 
     <LinearLayout
