@@ -49,9 +49,12 @@
                 android:id="@+id/themeSwitcher"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Темная тема"
+                android:text="@string/theme_is_black"
                 android:layout_marginRight="12dp"
                 android:layout_gravity="start"
+                app:trackTint="@color/switch_background"
+                app:thumbTint="@color/switch_button"
+                style="@style/MenuBarText"
                 />
         </LinearLayout>
 
