@@ -15,9 +15,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat.startActivity
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 
 internal class SettingsActivity : AppCompatActivity() {
+    private var isUserSwitching = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -26,6 +28,7 @@ internal class SettingsActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener  {
             val displayIntent = Intent(this, MainActivity::class.java)
             startActivity(displayIntent)
+            finish()
         }
 
         val shareButton = findViewById<ImageView>(R.id.button_share)
@@ -42,6 +45,22 @@ internal class SettingsActivity : AppCompatActivity() {
         userAgreementButton.setOnClickListener {
             moveToOffertInBrowser()
         }
+
+        val themeSwitcher = findViewById<SwitchMaterial>(R.id.themeSwitcher)
+        themeSwitcher.isChecked = (applicationContext as App).darkTheme
+
+        themeSwitcher.setOnCheckedChangeListener { switcher, checked ->
+            (applicationContext as App).switchTheme(checked) }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        isUserSwitching = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        isUserSwitching = false
     }
 
     private fun shareApp() {
@@ -71,21 +90,9 @@ internal class SettingsActivity : AppCompatActivity() {
     }
 
     private fun moveToOffertInBrowser() {
-
         val userAgreementLink = getString(R.string.user_agreement_link)
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(userAgreementLink))
-
         startActivity(browserIntent)
-    }
-
-    private fun syncNightModeWithSystem() {
-        val nightModeSwitch = findViewById<Switch>(R.id.night_mode_switch)
-        val currentNightMode = AppCompatDelegate.getDefaultNightMode()
-
-        when (currentNightMode) {
-            AppCompatDelegate.MODE_NIGHT_YES -> nightModeSwitch.isChecked = true
-            AppCompatDelegate.MODE_NIGHT_NO -> nightModeSwitch.isChecked = false
-        }
     }
 
 }

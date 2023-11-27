@@ -26,12 +26,15 @@
             android:layout_height="@dimen/menu_height"
             style="@style/MenuBarLayout">
 
+            <!--
             <TextView
                 android:layout_width="@dimen/nothing"
                 android:layout_height="wrap_content"
                 android:text="@string/theme_is_black"
                 style="@style/MenuBarText" />
+                -->
 
+            <!--
             <Switch
                 android:id="@+id/night_mode_switch"
                 android:layout_width="56dp"
@@ -40,6 +43,16 @@
                 android:layout_marginEnd="@dimen/medium_space"
                 android:checked="false"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
+                -->
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/themeSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Темная тема"
+                android:layout_marginRight="12dp"
+                android:layout_gravity="start"
+                />
         </LinearLayout>
 
         <LinearLayout
