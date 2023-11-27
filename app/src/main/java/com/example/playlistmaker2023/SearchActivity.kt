@@ -56,11 +56,6 @@ class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
 
     private lateinit var searchHistory: SearchHistory
 
-
-    companion object {
-        private const val SEARCH_TEXT_KEY = "searchText"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -68,7 +63,7 @@ class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
         setupListeners()
         restoreSavedState(savedInstanceState)
 
-        searchHistory = SearchHistory(getSharedPreferences("SearchHistory", Context.MODE_PRIVATE))
+        searchHistory = SearchHistory(getSharedPreferences(SEARCH_HISTORY_KEY, Context.MODE_PRIVATE))
         adapter = TrackAdapter(adapterList, searchHistory)
         adapter.setOnTrackClickListener(this)
         adapterHistory = TrackAdapter(adapterListHistory, searchHistory)
@@ -259,7 +254,6 @@ class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
             errorNothingWasFound.visibility= View.GONE
         }
     }
-
     private fun showAnotherErrorText(text: String, additionalMessage: String){
         if (text.isNotEmpty()) {
             recyclerViewTrack.visibility= View.GONE
@@ -276,26 +270,22 @@ class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
             errorAnother.visibility= View.GONE
         }
     }
-
     private fun refreshLastFailedSearch() {
         if (errorAnother.visibility == View.VISIBLE) {
             val lastQuery = searchEditText.text.toString()
             searchFromAPI(lastQuery)
         }
     }
-
     private fun loadAndDisplaySearchHistory() {
         val historyList = searchHistory.getSearchHistory()
         adapterListHistory.clear()
         adapterListHistory.addAll(historyList)
         adapterHistory.notifyDataSetChanged()
     }
-
     private fun showSearchHistory() {
         historyLayout.visibility = View.VISIBLE
         cleanHistory.visibility = View.VISIBLE
     }
-
     private fun hideSearchHistory() {
         val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
         historyLayout.startAnimation(fadeOut)
@@ -303,5 +293,9 @@ class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
 
         historyLayout.visibility = View.GONE
         cleanHistory.visibility = View.GONE
+    }
+    companion object {
+        private const val SEARCH_TEXT_KEY = "searchText"
+        private const val SEARCH_HISTORY_KEY = "SearchHistory"
     }
 }

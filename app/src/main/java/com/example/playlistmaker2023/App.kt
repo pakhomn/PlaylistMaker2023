@@ -7,8 +7,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 
-const val PREFERENCES_NAME = "app_preferences"
-const val DARK_THEME_KEY = "dark_theme_enabled"
+private const val PREFERENCES_NAME = "app_preferences"
+private const val DARK_THEME_KEY = "dark_theme_enabled"
 
 class App : Application() {
     var darkTheme = false
