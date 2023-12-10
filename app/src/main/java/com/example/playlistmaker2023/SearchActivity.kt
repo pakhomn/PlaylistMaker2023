@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.EditorInfo
@@ -64,9 +65,11 @@ class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
         restoreSavedState(savedInstanceState)
 
         searchHistory = SearchHistory(getSharedPreferences(SEARCH_HISTORY_KEY, Context.MODE_PRIVATE))
-        adapter = TrackAdapter(adapterList, searchHistory)
+        adapter = TrackAdapter(adapterList, searchHistory, false)
         adapter.setOnTrackClickListener(this)
-        adapterHistory = TrackAdapter(adapterListHistory, searchHistory)
+        adapterHistory = TrackAdapter(adapterListHistory, searchHistory, false)
+        adapterHistory.setOnTrackClickListenerHistory(this)
+
 
         recyclerViewTrackHistory = findViewById(R.id.track_history)
         recyclerViewTrackHistory.layoutManager = LinearLayoutManager(this)
@@ -106,8 +109,23 @@ class SearchActivity : AppCompatActivity(), TrackAdapter.OnTrackClickListener {
     }
 
     override fun onTrackClick(track: Track) {
-        searchHistory.saveSearch(track)
-        loadAndDisplaySearchHistory()
+        Log.d("SearchActivity", "onTrackClick отработал: ${track.trackName}")
+
+        if (!searchHistory.hasSearch(track)) {
+            searchHistory.saveSearch(track)
+            loadAndDisplaySearchHistory()
+        }
+
+        val pleerIntent = Intent(this, PleerActivity::class.java)
+        pleerIntent.putExtra(Constants.TRACK, track)
+        startActivity(pleerIntent)
+    }
+
+    fun onTrackClickHistory(track: Track) {
+        // Обработка клика на трек из истории поиска
+        val pleerIntent = Intent(this, PleerActivity::class.java)
+        pleerIntent.putExtra(Constants.TRACK, track)
+        startActivity(pleerIntent)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
