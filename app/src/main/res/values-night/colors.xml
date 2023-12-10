@@ -10,4 +10,5 @@
     <color name="button_text_color">#1A1B22</color>
     <color name="switch_background">#9FBBF3</color>
     <color name="switch_button">#3772E7</color>
+    <color name="pleer_info_right_text">#FFFFFF</color>
 </resources>

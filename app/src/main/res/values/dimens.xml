@@ -13,4 +13,5 @@
     <dimen name="half_space">4dp</dimen>
     <dimen name="half_half_space">2dp</dimen>
     <dimen name="space_x3">24dp</dimen>
+    <dimen name="medium_space_plus_1_x2">24dp</dimen>
 </resources>

@@ -46,4 +46,9 @@ class SearchHistory(private val sharedPreferences : SharedPreferences) {
         editor.putString(HISTORY_KEY, json)
         editor.apply()
     }
+
+    fun hasSearch(track: Track): Boolean {
+        val historyList = getSearchHistory()
+        return historyList.any { it.trackId == track.trackId }
+    }
 }

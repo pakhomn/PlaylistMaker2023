@@ -23,6 +23,18 @@
     <string name="new_connect" translatable="false">Обновить</string>
     <string name="you_was_searching" translatable="false">Вы искали</string>
     <string name="clean_history" translatable="false">Очистить историю</string>
+    <string name="country" translatable="false">Страна</string>
+    <string name="country_name" translatable="false">Великобритания</string>
+    <string name="type" translatable="false">Жанр</string>
+    <string name="rock" translatable="false">Rock</string>
+    <string name="year" translatable="false">Год</string>
+    <string name="year_count" translatable="false">1965</string>
+    <string name="album" translatable="false">Альбом</string>
+    <string name="album_name" translatable="false">Yesterday (Remastered 2009)</string>
+    <string name="timeline" translatable="false">Длительность</string>
+    <string name="timeline_count" translatable="false">5:35</string>
+    <string name="time_counter" translatable="false">0:30</string>
+
 
 
 </resources>
