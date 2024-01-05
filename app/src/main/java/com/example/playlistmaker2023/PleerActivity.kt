@@ -69,7 +69,7 @@ class PleerActivity : AppCompatActivity() {
     private fun displayTrackInfo() {
         pleerTrack.text = track.trackName
         pleerGroup.text = track.artistName
-        pleerInfoTimelineCount.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(track.trackTimeMillis)
+        pleerInfoTimelineCount.text = track.formattedTrackTime()
         pleerInfoYearCount.text = track.releaseDate.subSequence(0, 4)
         pleerInfoRock.text = track.primaryGenreName
         pleerInfoCountryName.text = track.country
@@ -80,7 +80,7 @@ class PleerActivity : AppCompatActivity() {
         }
 
         Glide.with(this)
-            .load(track.artworkUrl100.replaceAfterLast('/',"512x512bb.jpg"))
+            .load(track.artworkUrl512)
             .placeholder(R.drawable.placeholder_main)
             .centerInside()
             .transform(RoundedCorners(this.resources.getDimensionPixelSize(R.dimen.space)))
@@ -93,12 +93,4 @@ class PleerActivity : AppCompatActivity() {
         finish()
     }
 
-    private inline fun <reified T : Serializable> Intent.serializable(key: String): T? = when {
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> getSerializableExtra(key, T::class.java)
-        else -> @Suppress("DEPRECATION") getSerializableExtra(key) as? T
-    }
-
-    companion object {
-        const val PLEER_ACTIVITY_TAG = "PleerActivityTag"
-    }
 }
