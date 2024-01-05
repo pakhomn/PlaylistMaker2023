@@ -13,4 +13,6 @@
     <color name="button_text_color">#FFFFFFFF</color>
     <color name="switch_background">#E6E8EB</color>
     <color name="switch_button">#AEAFB4</color>
+    <color name="pleer_info_left_text">#AEAFB4</color>
+    <color name="pleer_info_right_text">#1A1B22</color>
 </resources>

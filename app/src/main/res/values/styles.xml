@@ -227,6 +227,17 @@
         <item name="cornerRadius">54dp</item>
     </style>
 
+    <style name="PleerInfoLeft">
+        <item name="android:fontFamily">@font/ys_display</item>
+        <item name="android:textColor">@color/pleer_info_left_text</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="PleerInfoRight">
+        <item name="android:fontFamily">@font/ys_display</item>
+        <item name="android:textColor">@color/pleer_info_right_text</item>
+        <item name="android:textSize">13sp</item>
+    </style>
 
 
 
